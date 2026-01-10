@@ -1,0 +1,92 @@
+import 'package:flutter/material.dart';
+
+class Alertvew extends StatelessWidget {
+  const Alertvew({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    showAlertDilog() {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("This is title"),
+            content: Text("Are you sure"),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Cancle"),
+              ),
+              ElevatedButton(onPressed: () {}, child: Text("Submit")),
+            ],
+          );
+        },
+      );
+    }
+
+    showAlertDilogWithIcon() {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Installation block"),
+            content: Column(
+              mainAxisSize: .min,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.warning, color: Colors.red, size: 48),
+                    Text("Warning", style: TextStyle(fontSize: 25)),
+                  ],
+                ),
+                Text(
+                  " I love Bangladesh, I am week in English,I Love Allah, Allah Tumi towfik dan koro j ami jeno vlo Muslim hoite peri",
+                  style: TextStyle(color: Colors.grey),
+                ),
+                
+              ],
+            ),
+            actions: [
+              TextButton(onPressed: (){
+                Navigator.pop(context);
+              }, child: Text("OK")),
+              FilledButton(onPressed: (){}, child: Text("Submit"))
+            ],
+          );
+        },
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Alert Vew",
+          style: TextStyle(fontSize: 25, color: Colors.white),
+        ),
+        backgroundColor: Colors.greenAccent,
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: .center,
+          children: [
+            FilledButton(
+              onPressed: () {
+                showAlertDilog();
+              },
+              child: Text("Alert Dilog"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showAlertDilogWithIcon();
+              },
+              child: Text("Alert Dilog With Icon"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
