@@ -75,31 +75,44 @@ class Alertvew extends StatelessWidget {
       );
     }
 
-    showBottomSheet(){
-      showModalBottomSheet(context: context, builder: (context)=>Container(
-        child: Column(
-          children: [
-            Text("Chose option",style: TextStyle(fontSize: 18),),
-            ListTile(
-              title: Text("Option -1"),
-
-            ),
-            ListTile(
-              title: Text("Option -1"),
-
-            ),
-            ListTile(
-              title: Text("Option -1"),
-
-            ),
-            ListTile(
-              title: Text("Option -1"),
-
-            ),
-
-          ],
+    showBottomSheet() {
+      showModalBottomSheet(
+        context: context,
+        builder: (context) => Container(
+          child: Column(
+            mainAxisSize: .min,
+            children: [
+              Text("Chose option", style: TextStyle(fontSize: 18)),
+              ListTile(title: Text("Option -1")),
+              ListTile(title: Text("Option -1")),
+              ListTile(title: Text("Option -1")),
+              ListTile(title: Text("Option -1")),
+            ],
+          ),
         ),
-      ));
+      );
+    }
+
+    showCustomDialog() {
+      showDialog(
+        context: context,
+        builder: (context) => Dialog(
+          child: Column(
+            mainAxisSize: .min,
+            children: [
+              Image.network(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJo7n7XXByw40QwFnGILGMq2BxD55PkKl8yA&s",
+
+              ),
+              SizedBox(height: 10,),
+              Text("Costom Dialog"),
+              ElevatedButton(onPressed: (){
+                Navigator.pop(context);
+              }, child: Text("Close")),
+            ],
+          ),
+        ),
+      );
     }
 
     return Scaffold(
@@ -139,9 +152,12 @@ class Alertvew extends StatelessWidget {
               },
               child: Text("Bottom sheet"),
             ),
-
-
-
+            ElevatedButton(
+              onPressed: () {
+                showCustomDialog();
+              },
+              child: Text("Dialog"),
+            ),
           ],
         ),
       ),
