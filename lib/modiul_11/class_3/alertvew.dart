@@ -29,6 +29,7 @@ class Alertvew extends StatelessWidget {
     showAlertDilogWithIcon() {
       showDialog(
         context: context,
+        barrierDismissible: false,
         builder: (context) {
           return AlertDialog(
             title: Text("Installation block"),
@@ -45,18 +46,60 @@ class Alertvew extends StatelessWidget {
                   " I love Bangladesh, I am week in English,I Love Allah, Allah Tumi towfik dan koro j ami jeno vlo Muslim hoite peri",
                   style: TextStyle(color: Colors.grey),
                 ),
-                
               ],
             ),
             actions: [
-              TextButton(onPressed: (){
-                Navigator.pop(context);
-              }, child: Text("OK")),
-              FilledButton(onPressed: (){}, child: Text("Submit"))
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("OK"),
+              ),
+              FilledButton(onPressed: () {}, child: Text("Submit")),
             ],
           );
         },
       );
+    }
+
+    showAlertDilogWithsimpledialog() {
+      showDialog(
+        context: context,
+        builder: (context) => SimpleDialog(
+          title: Text("Simple dialog"),
+          children: [
+            SimpleDialogOption(child: Text("Option-1")),
+            SimpleDialogOption(child: TextField()),
+          ],
+        ),
+      );
+    }
+
+    showBottomSheet(){
+      showModalBottomSheet(context: context, builder: (context)=>Container(
+        child: Column(
+          children: [
+            Text("Chose option",style: TextStyle(fontSize: 18),),
+            ListTile(
+              title: Text("Option -1"),
+
+            ),
+            ListTile(
+              title: Text("Option -1"),
+
+            ),
+            ListTile(
+              title: Text("Option -1"),
+
+            ),
+            ListTile(
+              title: Text("Option -1"),
+
+            ),
+
+          ],
+        ),
+      ));
     }
 
     return Scaffold(
@@ -84,6 +127,21 @@ class Alertvew extends StatelessWidget {
               },
               child: Text("Alert Dilog With Icon"),
             ),
+            ElevatedButton(
+              onPressed: () {
+                showAlertDilogWithsimpledialog();
+              },
+              child: Text("Alert Dilog With Simple dialog"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showBottomSheet();
+              },
+              child: Text("Bottom sheet"),
+            ),
+
+
+
           ],
         ),
       ),
