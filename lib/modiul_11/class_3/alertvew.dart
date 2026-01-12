@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class Alertvew extends StatelessWidget {
@@ -102,17 +104,43 @@ class Alertvew extends StatelessWidget {
             children: [
               Image.network(
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJo7n7XXByw40QwFnGILGMq2BxD55PkKl8yA&s",
-
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
               Text("Costom Dialog"),
-              ElevatedButton(onPressed: (){
-                Navigator.pop(context);
-              }, child: Text("Close")),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Close"),
+              ),
             ],
           ),
         ),
       );
+    }
+
+    showLoadingDialog() {
+      showDialog(
+        context: context,
+        builder: (context) => Dialog(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                CircularProgressIndicator(),
+                SizedBox(width: 10),
+                Text("Loading"),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
+    showSnackBar() {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("This is snackbar")));
     }
 
     return Scaffold(
@@ -158,6 +186,16 @@ class Alertvew extends StatelessWidget {
               },
               child: Text("Dialog"),
             ),
+            ElevatedButton(
+              onPressed: () {
+                showLoadingDialog();
+              },
+              child: Text("Loading"),
+            ),
+            ElevatedButton(onPressed: (){
+              showSnackBar();
+
+            }, child: Text("snackbar"))
           ],
         ),
       ),
