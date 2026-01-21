@@ -111,6 +111,9 @@ class TapBar extends StatelessWidget {
                   "Item-2",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
+                onTap: (){
+                  Navigator.pushNamed(context, "/home");
+                },
               ),
               Divider(),
               ListTile(
