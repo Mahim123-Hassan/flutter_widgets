@@ -13,13 +13,6 @@ class Myapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home:  TravelUi(),
-      initialRoute: "/bottomNav",
-      routes: {
-      "/home":(context)=>StackPractis(),
-        "/class1":(context)=>ListView(),
-
-      },
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: TravelUi());
   }
 }
