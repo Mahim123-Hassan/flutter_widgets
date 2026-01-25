@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'cityWidget.dart';
+
 class TravelUi extends StatefulWidget {
   const TravelUi({super.key});
 
@@ -11,7 +13,8 @@ class _TravelUiState extends State<TravelUi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
@@ -64,8 +67,20 @@ class _TravelUiState extends State<TravelUi> {
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
           ),
-          SizedBox(height: 10,),
-
+          SizedBox(height: 5),
+          cityWidget(
+            img:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLZc2WiGLMSWIQc81O7GH4TtpU7U38gIq5nDyiYCilhO_rnHc1njW33Ms&s",
+            title: "Paris",
+            rating: "5.0",
+          ),
+          SizedBox(height: 10),
+          cityWidget(
+            img:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUYZU80EvKNoCpKrRuaj8HSGU_2sc8SL2Hv5E9_nsnnJeO0xQA5G3EeNA&s",
+            rating: "8.0",
+            title: "Panama",
+          ),
         ],
       ),
     );
